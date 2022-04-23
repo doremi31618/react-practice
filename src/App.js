@@ -36,7 +36,10 @@ function App() {
   return (
     <div className="app-root">
       <NewExpense onAddExpenseData={addExpenseData}/>
-      <Expenses items={expenseItems} onFilterChange={filterChangeHandler}/>
+      <Expenses 
+        items={expenseItems} 
+        onFilterChange={filterChangeHandler}
+      />
     </div>
    
   );

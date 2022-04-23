@@ -18,6 +18,11 @@ export default function ExpenseForm( props ){
         }
         // console.log(expenseData);
         props.onSaveExpenseHandler(expenseData);
+
+        //clear form data
+        setEnterTitle("");
+        setEnterAmount("");
+        setEnterDate("")
     }
 
     return (
@@ -25,19 +30,23 @@ export default function ExpenseForm( props ){
         <div className="new-expense__controls">
             <div className="new-expense__control">
                 <label>Title</label>
-                <input  type="text" value={enterTitle} onChange={titleChangeHandler}></input>
+                <input  type="text" value={enterTitle} onChange={titleChangeHandler} required={true}></input>
             </div>
             <div className="new-expense__control">
                 <label>Amount</label>
-                <input type="number" min="1" step="1" value={enterAmount} onChange={amountChangeHandler}></input>
+                <input type="number" min="1" step="1" value={enterAmount} onChange={amountChangeHandler} required={true}></input>
             </div>
             <div className="new-expense__control">
                 <label>Date</label>
-                <input type="date" min="2018-01-01" max="2024-12-31" value={enterDate} onChange={dateChangeHandler}></input>
+                <input type="date" min="2018-01-01" max="2024-12-31" value={enterDate} onChange={dateChangeHandler} required={true}></input>
             </div>
-            <div className="new-expense__control">
-                <input type="submit"></input>
+            <div className="new-expense__actions">
+                <button type="submit">確認</button>
+            </div>
+            <div className="new-expense__actions">
+                <button onClick={props.onCancel}>取消</button>
             </div>
         </div>
+        
     </form>)
 }
